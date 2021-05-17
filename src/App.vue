@@ -114,11 +114,11 @@
 					<div class="col box">
 						<div>
 							<span>SUNRISE:</span>
-							<p>{{changeTimeStamp(weather.sunrise)}}</p>
+							<p>{{changeTimeStamp(weather.sunrise, weather.timezone)}}</p>
 						</div>
 						<div>
 							<span>SUNSET:</span>
-							<p>{{changeTimeStamp(weather.sunset)}}</p>
+							<p>{{changeTimeStamp(weather.sunset, weather.timezone)}}</p>
 						</div>
 					</div>
 				</div>
@@ -157,6 +157,7 @@ export default {
 				humidity: 55,
 				sunrise: "08:10",
 				sunset: "19:00",
+				timezone: ""
 			},
 		};
 	},
@@ -173,8 +174,8 @@ export default {
 			return txt.value;
 		},
 
-		changeTimeStamp: function(unixStamp) {
-			var date_ob = new Date(unixStamp * 1000);
+		changeTimeStamp: function(unixStamp, timezone) {
+			var date_ob = new Date((unixStamp + 4*60*60 + timezone) * 1000);
 			var hours = ("0" + date_ob.getHours()).slice(-2);
 			var minutes = ("0" + date_ob.getMinutes()).slice(-2);
 			const res = hours + ":" + minutes;
@@ -202,6 +203,7 @@ export default {
 				this.weather.humidity = Math.round(data.main.humidity);
 				this.weather.sunrise = data.sys.sunrise;
 				this.weather.sunset = data.sys.sunset;
+				this.weather.timezone = data.timezone;
 
 				const time = data.weather[0].icon; //weather -> array[1]
 				this.isDay = time.includes("n") ? false : true;
