@@ -1,0 +1,71 @@
+#main {
+	position: absolute;
+	height: 100%;
+	width: 100%;
+}
+/*day & night background*/
+.day {
+	background: linear-gradient(to bottom left, #e6f9ff, #ffffff);
+	color: #80d4ff;
+}
+.night {
+	background: linear-gradient(to bottom left, #4854a2, #3d3d3d);
+	color: white;
+}
+/*input box*/
+.container {
+	max-width: 360px;
+	min-width: 360px;
+	border-radius: 30px;
+}
+.title {
+	font-size: 40px;
+	font-weight: 500;
+}
+/*card overview*/
+.back-card {
+	color: white;
+	background: none;
+	text-shadow: 2px 2px 2px #707070;
+	position: relative;
+	z-index: 2;
+}
+.unit-select {
+	background: white;
+	color: #000000;
+	border-radius: 5px;
+}
+.card-text {
+	font-size: 2em;
+	font-weight: 500;
+	font-family: Arial, Helvetica, sans-serif;
+	white-space: nowrap;
+}
+.card-small {
+	font-size: 15px;
+	font-weight: 300;
+	font-family: Arial, Helvetica, sans-serif;
+	white-space: nowrap;
+}
+.condition {
+	font-size: 1em;
+	font-weight: 700;
+	line-height: 1em;
+	text-transform: capitalize;
+}
+.icon-logo {
+	width: 120px;
+	height: 120px;
+	vertical-align: middle;
+}
+.box {
+	font-size: 13px;
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: space-around;
+	line-height: 2;
+}
+.form-control: focus {
+	box-shadow: none;
+	border-color: inherit;
+}
